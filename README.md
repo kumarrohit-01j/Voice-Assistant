@@ -1,4 +1,4 @@
-# Veda Project
+# Voice Assistant Jony Project
 
 ## Structure
 
