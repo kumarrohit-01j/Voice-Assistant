@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veda AI Control Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="page-wrap">
+        <nav class="topbar">
+            <div class="brand-block">
+                <span class="eyebrow soft">AI control center</span>
+                <h2>Veda Dashboard</h2>
+                <p class="subtle">A modern voice-first workspace for commands, history, and live assistant feedback.</p>
+            </div>
+            <div class="topbar-pills">
+                <span class="status-pill online">● Live</span>
+                <span class="status-pill">Voice ready</span>
+                <span class="status-pill">Fast response</span>
+            </div>
+        </nav>
+
+        <header class="hero-card">
+            <div class="hero-left">
+                <span class="eyebrow">Veda AI</span>
+                <h1>Unified Web Control</h1>
+                <p>Run commands, monitor history, and animate the assistant directly from a single Python web portal.</p>
+
+                <div class="feature-pills">
+                    <span class="feature-pill">Voice control</span>
+                    <span class="feature-pill">Command history</span>
+                    <span class="feature-pill">Live animation</span>
+                </div>
+
+                <div class="hero-buttons">
+                    <button id="refreshButton">Refresh History</button>
+                    <button id="sparkButton">Spark Veda</button>
+                </div>
+
+                <div class="theme-row">
+                    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+                        <span id="themeIcon" class="theme-icon" aria-hidden="true">🌙</span>
+                        <span id="themeLabel" class="theme-label">Dark mode</span>
+                    </button>
+                    <span class="theme-hint">Switch between dark and light views instantly.</span>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-visual tilt-card" data-tilt>
+                    <div class="ambient-grid"></div>
+                    <div class="ambient-ring ring-one"></div>
+                    <div class="ambient-ring ring-two"></div>
+                    <div class="ambient-dot dot-one"></div>
+                    <div class="ambient-dot dot-two"></div>
+                    <div class="robot-shell ai-shell" id="robotShell">
+                        <div class="walk-figure">
+                            <div class="character-shadow"></div>
+                            <div class="character-antenna antenna-left"></div>
+                            <div class="character-antenna antenna-right"></div>
+                            <div class="character-body">
+                                <div class="character-core"></div>
+                                <div class="character-head">
+                                    <div class="robot-eye eye-left"></div>
+                                    <div class="robot-eye eye-right"></div>
+                                    <div class="robot-mouth"></div>
+                                </div>
+                            </div>
+                            <div class="character-arm arm-left"></div>
+                            <div class="character-arm arm-right"></div>
+                            <div class="character-leg leg-left"></div>
+                            <div class="character-leg leg-right"></div>
+                        </div>
+                        <div class="robot-glow"></div>
+                        <div class="pulse-ring pulse-1"></div>
+                        <div class="pulse-ring pulse-2"></div>
+                    </div>
+                    <div class="live-metrics">
+                        <span>3D live</span>
+                        <strong>AI pulse active</strong>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="insights-grid">
+            <article class="mini-card accent-card tilt-card" data-tilt>
+                <span class="mini-label">Overview</span>
+                <h3>Command hub</h3>
+                <p>Launch everyday actions, search the web, or control your assistant from one screen.</p>
+            </article>
+            <article class="mini-card">
+                <span class="mini-label">Status</span>
+                <h3>Always on</h3>
+                <p>Use the live control panel to stay in sync with recent activity and voice responses.</p>
+            </article>
+            <article class="mini-card tilt-card" data-tilt>
+                <span class="mini-label">Theme</span>
+                <h3>Light or dark</h3>
+                <p>Switch between modes instantly for a comfortable view in any environment.</p>
+            </article>
+        </section>
+
+        <section class="command-card tilt-card" data-tilt>
+            <div class="command-top">
+                <h2>Send a command</h2>
+                <span>Type a command, click Mic, or say "hey" before your command.</span>
+            </div>
+            <div class="command-input-group">
+                <input id="commandInput" type="text" placeholder="e.g. open youtube, take note, play music" autocomplete="off" />
+                <button id="voiceButton" type="button" aria-pressed="false" title="Start voice command">Mic</button>
+                <button id="sendButton">Send Command</button>
+            </div>
+            <div class="voice-status" id="voiceStatus">Voice command is ready.</div>
+            <div class="response-box" id="commandResponse">Ready to process your command.</div>
+        </section>
+
+        <section class="history-card tilt-card" data-tilt>
+            <div class="history-header">
+                <h2>Recent Command History</h2>
+                <span id="lastUpdate">Last updated: --</span>
+            </div>
+            <div id="historyList" class="history-list"></div>
+        </section>
+
+        <section class="animation-card tilt-card" data-tilt>
+            <h2>Live Assistant Pulse</h2>
+            <div class="animation-stage" id="animationStage">
+                <div class="anime-avatar" id="animeAvatar"></div>
+                <div class="anime-cloud"></div>
+                <div class="anime-cloud small"></div>
+                <div class="anime-cloud tiny"></div>
+            </div>
+            <p class="hint">Veda responds visually when you animate or send commands.</p>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}?v=2"></script>
+</body>
+</html>

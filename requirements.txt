@@ -1,0 +1,12 @@
+Flask
+pyttsx3
+SpeechRecognition
+sounddevice
+numpy
+scipy
+playsound
+gTTS
+pyautogui
+requests
+psutil
+pywhatkit
